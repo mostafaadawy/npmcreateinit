@@ -22,3 +22,44 @@ npm init -y
 $ npm i module-name // install module to dependencies
 $ npm i --save-dev module-name // install to dev dependencies
 $ npm i --save-dev module-name@1.19 // install a specific version (1.19 here) of module
+
+
+ "prettier": "^2.2.1"
+
+ Pay special attention to the version listed. The format is as follows.
+
+    First number = major version
+    Second number = minor release
+    Third number = patch
+
+The version states what was installed, but it also clarifies how it can be updated should you remove the node_modules and package-lock.json files and reinstall all dependencies with $ npm install.
+
+The additional included characters (or lack thereof) tell npm how to maintain your dependencies.
+
+    * means that you'll accept all updates
+    ^ means that you'll only accept minor releases
+    ~ means that you'll only accept patch releases
+    >, >=, <=, < are also valid for saying you'll accept versions greater/less/equal to the listed version
+    || allows you to combine instructions "prettier": "2.2.1 || >2.2.1 < 3.0.0" which says use prettier greater than 2.2.1 and less than version 3.0.0
+    You can also leave off a prefix and only accept the listed version
+
+
+to run prettier
+1- create config file touch .prettierrc .prettierrc contains the rule where it will be object keys is attrabiute and values is its values { "semi":"true","singleQuote":"true"}
+2- in the package.json in scripte add the command that call that script ---- "prettier":"prettier --config .prettierrc src/**/*.js --write"
+3- run the script by ---- npm run prettier
+
+Prettier is a code formatter that will ensure you're keeping your code consistent. It's commonly added to projects to ensure all members on a team are formatting in a consistent way such as always using semicolons, trailing commas, and single quotes. It can be configured to the preferred settings of the team and works well with additional tools like linting.
+
+We are able to add it to a project with NPM by doing the following:
+
+    Locate prettier on npmjs.com to get the install script and other information.
+    Run the install script npm i --save-dev prettier.
+    Add a prettier script to your package.json file. The script you choose can vary dramatically depending on the project. The one below will only overwrite files located in the src directory that are js files. You may need a different script depending on the project.
+
+// example config file, path structure to check, and write fixes 
+"prettier": "prettier --config .prettierrc 'src/**/*.js' --write"
+// or
+"prettier": "prettier --config .prettierrc \"src/**/*.js\" --write"
+Create a .prettierrc file for any custom configurations.
+Run npm run prettier to run prettier (or whatever you named 
