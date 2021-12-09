@@ -1,0 +1,24 @@
+NPM
+
+NPM is both a tool for managing project dependencies via command line and a website hosting more than 1 million third-party packages that can be used for your project.
+
+    Modules are shared as packages
+    Packages extend the functionality of your app
+    Modules are stored in the app's node_modules folder
+    Core modules include path, Filesystem, and more
+
+
+
+
+
+//to create package jason file with selection 
+npm init
+//to make it by default
+npm init -y
+
+//go to
+//https://www.npmjs.com/
+//search for your package select and install npm i package name as displyed in npm help for the tatge package 
+$ npm i module-name // install module to dependencies
+$ npm i --save-dev module-name // install to dev dependencies
+$ npm i --save-dev module-name@1.19 // install a specific version (1.19 here) of module
